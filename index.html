@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html ng-app="myApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Personal Note Taker</title>
+		<!--Button Icons-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+		<!--Index Styling-->
+		<link rel ="stylesheet" href="css/style.css" />
+		<!--<link rel="icon" type="image/png" href="../images/note.jpg">-->
+	</head>
+
+	<body>
+
+		<div id="header">
+			<h1>Personal Note Taker</h1>
+		</div>
+
+		<!--Add Note Button-->
+		<div id="addNoteButton" ng-click="formShow=true">
+			<i class="fa fa-plus" aria-hidden="true"></i>
+		</div>
+
+		<div ng-controller="formController"></div>
+
+		<!--Form Background-->
+		<div id="form-background" ng-show="formShow">
+		</div>
+
+
+		<!--Form Field-->
+		<div id="form" ng-show="formShow" class="ng-hide">
+
+		<div id="cancel-button-div">
+			<button id="cancel-button" ng-click="formShow=false">X</button>
+		</div>
+
+		<h2 id="form-title">Add a Note</h2>
+		<form class="ng-valid ng-dirty ng-valid-parse ng-submitted">
+			<br>
+			<input placeholder="Title" type="text" id="titleInput" ng-model="entry_title" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched">
+			<br><br>
+			<textarea placeholder="Description" type="text" id="descInput" rows="8" cols="30" ng-model="entry_desc" class="ng-valid ng-not-empty ng-dirty ng-valid-parse ng-touched"></textarea>
+			<br><br>
+			<button id="submit" ng-click="formShow=false; showNote(); addNote();">Submit</button>
+		</form
+
+		<div class="note ng-scope" ng-repeat="entry in notes">
+
+		<a ui-sref="demo" href="#/demo">
+			<div class="note-content">
+				<div class="imagecontainer">
+					<img id="userImage" >
+				</div>
+				<div class="description">
+					<h3 class="ng-binding"></h3><p class="ng-binding"></p>
+				</div>
+			</div>
+		</a>
+	</div>
+
+
+
+		</div>
+
+
+		<!--Angular Library-->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<!--Jquery Library-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!--Cross Origin Library-->
+		<script src="javascript/jquery.ajax-cross-origin.min.js"></script>
+		<!--Jquery Animation Library-->
+		<script src="javascript/jquery-ui.js"></script>
+		<!--Index Javascript-->
+		<script src="javascript/index_script_angular.js"></script>
+
+
+	</body>
+
+</html>
